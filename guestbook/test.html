@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>json連接</title>
+        <script src="jQuery-3.5.1.js"></script>
+        <script>
+            function testFunc() {
+                var data={};
+                var host = "127.0.0.1";
+                var port = ":3000"
+                $.ajax({
+                    url : 'http://'+ host + port +'/123asd',
+                    type : 'POST',
+                    data : JSON.stringify(data),
+                    contentType : 'application/json;',
+                    success : function(result) {
+                        document.write(result[0].id)
+                    }
+
+                })
+            }
+        </script>
+    </head>
+
+    <body>
+        <button onclick="testFunc()">show data</button>
+        
+        
+    </body>
+
+</html>
