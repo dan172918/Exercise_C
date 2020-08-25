@@ -2,11 +2,20 @@
 <html>
     <head>
         <title>json連接</title>
-        <script src="jQuery-3.5.1.js"></script>
+        <script src="jquery-3.5.1.js"></script>
         <script>
+	    var host = "34.105.17.84";
+	    var port = ":3000";
+	    $.ajaxPrefilter(function(options) {     
+      	        if (options.crossDomain && jQuery.support.cors) {         
+	    	    var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');         		           
+		    options.url = http + '//'+host+':8080/'+options.url;
+		    //options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+		} 
+	    });
             function testFunc() {
                 var data={};
-                var host = "127.0.0.1";
+                var host = "34.105.17.84";
                 var port = ":3000"
                 $.ajax({
                     url : 'http://'+ host + port +'/123asd',
@@ -18,7 +27,7 @@
                     }
 
                 })
-            }
+	     }
         </script>
     </head>
 
