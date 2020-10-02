@@ -25,7 +25,7 @@ int main()
 		count++;
 		cout<<"Case "<<count<<": "<<num<<endl;
 
-		int mark=0;
+		int mark=0,zeroCount=0;
 		bool isAllBits=true;
 		for(int i=0;i<32;i++)
 			ans[i]=0;
@@ -39,12 +39,15 @@ int main()
 		for(int i=0;i<arr.size();i++)
 			if(ans[arr[i]]!=1)
 			{
-				cout<<"false(all bits 1)"<<endl<<"true(exist bits 1)"<<endl;
 				isAllBits=false;
-				break;
+				zeroCount++;
 			}
 		if(isAllBits==true)
 			cout<<"true(all bits 1)"<<endl<<"true(exist bits 1)"<<endl;
+		else if(zeroCount==arr.size())
+			cout<<"false(all bits 1)"<<endl<<"false(exist bits 1)"<<endl;
+		else
+			cout<<"false(all bits 1)"<<endl<<"true(exist bits 1)"<<endl;
 	}
 }
 
